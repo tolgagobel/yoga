@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Requests\SequenceAddRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,8 +11,12 @@ class Sequence extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    public static function getSequence(){
-        return Sequence::get();
+    public function asanas(){
+        return $this->belongsToMany(Asana::class, 'sequence_asanas');
+    }
+
+    public static function getSequences(){
+        return Sequence::with('asanas')->get();
     }
 
     public static function addSequence($data){
