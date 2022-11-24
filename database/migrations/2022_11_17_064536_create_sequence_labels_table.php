@@ -17,6 +17,7 @@ class CreateSequenceLabelsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('sequence_id')->default(0);
             $table->unsignedBigInteger('label_id')->default(0);
+            $table->timestamps();
 
             $table->foreign('sequence_id')->references('id')->on('sequences')->onDelete('cascade');
             $table->foreign('label_id')->references('id')->on('labels')->onDelete('cascade');

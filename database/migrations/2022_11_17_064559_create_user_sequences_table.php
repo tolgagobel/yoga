@@ -19,6 +19,7 @@ class CreateUserSequencesTable extends Migration
             $table->unsignedBigInteger('sequence_id');
             $table->date('date');
             $table->string('completed');
+            $table->timestamps();
 
             $table->foreign('sequence_id')->references('id')->on('sequences')->onDelete('cascade');
         });

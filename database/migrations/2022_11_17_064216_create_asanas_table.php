@@ -19,6 +19,8 @@ class CreateAsanasTable extends Migration
             $table->string('sanskrit_name');
             $table->text('howto');
             $table->text('benefits');
+            $table->string('image')->nullable();
+            $table->timestamps();
         });
     }
 

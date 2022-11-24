@@ -9,10 +9,13 @@ class Label extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public $timestamps = false;
 
     public static function getLabel(){
         return Label::get();
+    }
+
+    public static function getLabelById($id){
+        return Label::find($id);
     }
 
     public static function addLabel($data) {

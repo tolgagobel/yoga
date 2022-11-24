@@ -12,6 +12,10 @@ class AsanaController extends Controller
         return Asana::getAsana();
     }
 
+    public function show(Asana $asana){
+        return Asana::getAsanaById($asana->id);
+    }
+
     public function create(AsanaAddRequest $request){
         return Asana::addAsana($request->validated());
     }
@@ -21,7 +25,11 @@ class AsanaController extends Controller
         return $asana->fresh();
     }
 
-    public function destroy(Asana $asana){
-        return Asana::deleteAsana($asana->id);
+    public function delete(Asana $asana){
+        $deleted = Asana::deleteAsana($asana->id);
+        if ($deleted)
+            return response()->json(['status' => 'success']);
+
+        return response()->json(['status' => 'failure']);
     }
 }

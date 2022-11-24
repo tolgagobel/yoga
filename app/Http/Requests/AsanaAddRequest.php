@@ -27,7 +27,8 @@ class AsanaAddRequest extends FormRequest
             'name' => 'required|string',
             'sanskrit_name' => 'required|string',
             'howto' => 'required|string',
-            'benefits' => 'required|string'
+            'benefits' => 'required|string',
+            'image' => 'image|mimes:jpg,jpeg,png'
         ];
     }
 }

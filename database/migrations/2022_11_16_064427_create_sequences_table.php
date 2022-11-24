@@ -16,6 +16,7 @@ class CreateSequencesTable extends Migration
         Schema::create('sequences', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

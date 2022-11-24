@@ -18,6 +18,7 @@ class CreateSequenceAsanasTable extends Migration
             $table->unsignedBigInteger('sequence_id')->default(0);
             $table->unsignedBigInteger('asana_id')->default(0);
             $table->string('duration');
+            $table->timestamps();
 
             $table->foreign('sequence_id')->references('id')->on('sequences')->onDelete('cascade');
             $table->foreign('asana_id')->references('id')->on('asanas')->onDelete('cascade');

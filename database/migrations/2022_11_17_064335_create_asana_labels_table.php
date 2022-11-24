@@ -17,6 +17,7 @@ class CreateAsanaLabelsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('asana_id')->default(0);
             $table->unsignedBigInteger('label_id')->default(0);
+            $table->timestamps();
 
             $table->foreign('asana_id')->references('id')->on('asanas')->onDelete('cascade');
             $table->foreign('label_id')->references('id')->on('labels')->onDelete('cascade');

@@ -9,10 +9,13 @@ class Asana extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public $timestamps = false;
 
     public static function getAsana(){
         return Asana::get();
+    }
+
+    public static function getAsanaById($id){
+        return Asana::find($id);
     }
 
     public static function addAsana($data) {

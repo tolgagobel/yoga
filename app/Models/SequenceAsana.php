@@ -9,20 +9,25 @@ class SequenceAsana extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public $timestamps = false;
 
-    public static function getSequenceAsana(){
-        return SequenceAsana::get();
+    public function asanas(){
+        return $this->hasMany(Asana::class);
     }
 
-    public static function addSequenceAsana($data){
-        return SequenceAsana::updateOrCreate([
-            'sequence_id' => $data['sequence_id'],
-            'asana_id' => $data['asana_id']
-        ], []);
+    public static function getSequenceAsana(){
+     //  return SequenceAsana::get();
+
+    }
+
+    public static function getSequenceAsanaById($id){
+        return self::find($id);
+    }
+
+    public static function addSequenceAsana($data) {
+        return self::create($data);
     }
 
     public static function deleteSequenceAsana($id){
-        return SequenceAsana::find($id)->delete();
+        return self::find($id)->delete();
     }
 }

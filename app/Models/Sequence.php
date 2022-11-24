@@ -9,7 +9,6 @@ class Sequence extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public $timestamps = false;
 
     public function asanas(){
         return $this->belongsToMany(Asana::class, 'sequence_asanas');
@@ -17,6 +16,10 @@ class Sequence extends Model
 
     public static function getSequences(){
         return Sequence::with('asanas')->get();
+    }
+
+    public static function getSequencesById($id){
+        return Sequence::find($id);
     }
 
     public static function addSequence($data){

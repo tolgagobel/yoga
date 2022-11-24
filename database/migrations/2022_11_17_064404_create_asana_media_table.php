@@ -17,6 +17,7 @@ class CreateAsanaMediaTable extends Migration
             $table->id();
             $table->unsignedBigInteger('asana_id');
             $table->unsignedBigInteger('media_id');
+            $table->timestamps();
 
             $table->foreign('asana_id')->references('id')->on('asanas')->onDelete('cascade');
             $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');

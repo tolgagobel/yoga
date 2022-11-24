@@ -23,3 +23,7 @@ Route::post('/auth/login', [AuthController::class, 'loginUser']);
 require_once "components/asana.php";
 require_once "components/sequence.php";
 require_once "components/label.php";
+require_once "components/sequenceasana.php";
+require_once "components/sequencelabel.php";
+require_once "components/asanalabel.php";
+require_once "components/media.php";
